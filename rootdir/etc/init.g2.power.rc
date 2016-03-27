@@ -5,6 +5,7 @@ on early-init
     write /sys/module/lowmemorykiller/parameters/vmpressure_file_min 53059
 
     write /sys/module/msm_thermal/core_control/enabled 0
+    
 
     chown root system /sys/devices/system/cpu/cpu1/online
     chown root system /sys/devices/system/cpu/cpu2/online
@@ -15,6 +16,8 @@ on early-init
     write /sys/devices/system/cpu/cpu1/online 1
     write /sys/devices/system/cpu/cpu2/online 1
     write /sys/devices/system/cpu/cpu3/online 1
+
+    start mpdecision
 
     write /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq 300000
     write /sys/devices/system/cpu/cpu1/cpufreq/scaling_min_freq 300000
