@@ -46,10 +46,15 @@ on enable-low-power
     write /sys/module/msm_pm/modes/cpu1/retention/idle_enabled 1
     write /sys/module/msm_pm/modes/cpu2/retention/idle_enabled 1
     write /sys/module/msm_pm/modes/cpu3/retention/idle_enabled 1
-    write /sys/kernel/cpu_input_boost/ib_freqs "1036800 1190400"
+    write /sys/kernel/cpu_input_boost/ib_freqs "1190400 1190400"
     write /sys/kernel/cpu_input_boost/ib_duration_ms 1400
     write /sys/kernel/cpu_input_boost/enabled 1
-    write /sys/module/msm_thermal/core_control/enabled 1
+    write /sys/kernel/msm_thermal/enabled 0
+    write /sys/kernel/msm_thermal/low_thresh "1574400 40 37"
+    write /sys/kernel/msm_thermal/mid_thresh "1267200 46 43"
+    write /sys/kernel/msm_thermal/high_thresh "1190400 52 48"
+    write /sys/kernel/msm_thermal/sampling_ms 10000
+    write /sys/kernel/msm_thermal/enabled 1
     start mpdecision
 
     write /sys/class/devfreq/qcom,cpubw.42/governor "cpubw_hwmon"
