@@ -397,11 +397,6 @@ service set_baseband /system/bin/sh /system/etc/set_baseband.sh
 on property:gsm.version.baseband=""
     start set_baseband
 
-service thermal-engine /system/bin/thermal-engine
-    class main
-    user root
-    group root
-
 service time_daemon /system/bin/time_daemon
     class late_start
     user root
